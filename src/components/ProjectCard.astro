@@ -15,6 +15,10 @@ interface Props {
 }
 
 const { title, description, tags, viewHref, githubHref, visual, image, imageAlt, badge } = Astro.props;
+
+const hasViewLink = Boolean(viewHref && viewHref !== "#");
+const hasGithubLink = Boolean(githubHref && githubHref !== "#");
+const hasActions = hasViewLink || hasGithubLink;
 ---
 
 <article class="glass-card group flex min-h-full flex-col overflow-hidden rounded-xl transition duration-200 hover:-translate-y-1 hover:border-accent/55">
@@ -45,14 +49,20 @@ const { title, description, tags, viewHref, githubHref, visual, image, imageAlt,
       ))}
     </div>
 
-    <div class="mt-auto flex items-center justify-between gap-3 pt-6">
-      <a class="inline-flex items-center gap-1.5 text-sm font-extrabold text-accent transition hover:text-sky-200" href={viewHref}>
-        View Project <ArrowRight size={16} aria-hidden="true" />
-      </a>
-      <a class="inline-flex items-center gap-1.5 text-sm font-extrabold text-slate-100 transition hover:text-accent" href={githubHref}>
-        <BrandIcon name="github" size={17} /> GitHub
-      </a>
-    </div>
+    {hasActions && (
+      <div class="mt-auto flex items-center justify-between gap-3 pt-6">
+        {hasViewLink && (
+          <a class="inline-flex items-center gap-1.5 text-sm font-extrabold text-accent transition hover:text-sky-200" href={viewHref}>
+            View Project <ArrowRight size={16} aria-hidden="true" />
+          </a>
+        )}
+        {hasGithubLink && (
+          <a class="inline-flex items-center gap-1.5 text-sm font-extrabold text-slate-100 transition hover:text-accent" href={githubHref}>
+            <BrandIcon name="github" size={17} /> GitHub
+          </a>
+        )}
+      </div>
+    )}
   </div>
 </article>
 
