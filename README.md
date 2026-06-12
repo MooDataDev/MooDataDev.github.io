@@ -1,6 +1,6 @@
 # Dr. Tobias Weller Portfolio
 
-Single-page Astro portfolio for Dr. Tobias Weller, Lead AI Engineer. The site is designed for GitHub Pages user-site deployment at `https://tobiasweller.github.io`.
+Single-page Astro portfolio for Dr. Tobias Weller, Lead AI Engineer. The site is designed for GitHub Pages user-site deployment at `https://moodatadev.github.io/`.
 
 ## Local Development
 
