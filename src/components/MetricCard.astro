@@ -1,0 +1,15 @@
+---
+interface Props {
+  icon: any;
+  value: string;
+  label: string;
+}
+
+const { icon: Icon, value, label } = Astro.props;
+---
+
+<div class="glass-card group min-h-28 rounded-xl p-4 text-center transition duration-200 hover:-translate-y-1 hover:border-accent/55">
+  <Icon class="mx-auto mb-3 text-accent" size={24} stroke-width={1.8} aria-hidden="true" />
+  <div class="text-2xl font-extrabold leading-none text-white">{value}</div>
+  <div class="mt-1 text-xs font-medium leading-snug text-slate-300">{label}</div>
+</div>

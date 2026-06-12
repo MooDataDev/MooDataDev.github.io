@@ -1,0 +1,59 @@
+---
+import { BrainCircuit, Building2, Download, FileText, Users, Zap } from "@lucide/astro";
+import BrandIcon from "./BrandIcon.astro";
+import MetricCard from "./MetricCard.astro";
+
+const metrics = [
+  { icon: BrainCircuit, value: "10+", label: "years AI/ML" },
+  { icon: Users, value: "6,000+", label: "active users" },
+  { icon: FileText, value: "350k+", label: "documents/day" },
+  { icon: Zap, value: "3.5M+", label: "daily inferences" },
+  { icon: Building2, value: "100+", label: "departments enabled" }
+];
+---
+
+<section id="about" class="container-shell grid min-h-[calc(100vh-5rem)] items-center gap-10 pb-14 pt-14 md:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+  <div>
+    <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-bold text-slate-200">
+      <span class="size-2 rounded-full bg-primary shadow-[0_0_18px_rgba(37,99,235,0.9)]"></span>
+      Lead AI Engineer
+    </div>
+
+    <h1 class="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight text-white md:text-6xl lg:text-7xl">
+      Dr. Tobias Weller
+      <span class="accent-text mt-2 block">Lead AI Engineer</span>
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+      Building production-grade AI systems for enterprise-scale document processing, GenAI, and intelligent automation.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <a class="button button-secondary" href="https://www.linkedin.com/in/tobias-weller">
+        <BrandIcon name="linkedin" /> LinkedIn
+      </a>
+      <a class="button button-secondary" href="https://github.com/tobias-weller">
+        <BrandIcon name="github" /> GitHub
+      </a>
+      <a class="button button-primary" href="/assets/cv.pdf" download>
+        <Download size={18} aria-hidden="true" /> Download CV
+      </a>
+    </div>
+
+    <div class="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      {metrics.map((metric) => <MetricCard {...metric} />)}
+    </div>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-md md:max-w-none">
+    <div class="absolute -inset-5 rounded-[2rem] bg-blue-500/20 blur-3xl"></div>
+    <div class="glass-card relative overflow-hidden rounded-[1.6rem] border-blue-400/40 p-2 shadow-glow">
+      <img
+        src="/assets/photo.png"
+        alt="Portrait of Dr. Tobias Weller"
+        class="aspect-[4/5] w-full rounded-[1.25rem] object-cover"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

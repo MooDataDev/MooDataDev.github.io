@@ -1,0 +1,147 @@
+---
+import {
+  Boxes,
+  BrainCircuit,
+  Cloud,
+  Code,
+  Database,
+  MessageSquareText
+} from "@lucide/astro";
+import Background from "../components/Background.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ImpactList from "../components/ImpactList.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import TechStack from "../components/TechStack.astro";
+import "../styles/global.css";
+
+const features = [
+  {
+    icon: Boxes,
+    title: "Enterprise AI Systems",
+    description:
+      "Design and deliver production-grade AI platforms that automate complex document workflows and business processes at scale."
+  },
+  {
+    icon: MessageSquareText,
+    title: "GenAI & RAG",
+    description:
+      "Build retrieval-augmented generation solutions that combine LLMs with enterprise data for accurate, trustworthy outcomes."
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI Platform Engineering",
+    description:
+      "Engineer scalable, secure, and observable AI platforms that empower teams and accelerate AI adoption across the organization."
+  }
+];
+
+const projects = [
+  {
+    title: "Enterprise AI Platform",
+    description:
+      "End-to-end platform for intelligent document processing with classification, extraction, translation, transcription, and workflow orchestration at scale.",
+    tags: ["Python", "PyTorch", "FastAPI", "Kubernetes"],
+    viewHref: "#",
+    githubHref: "#",
+    visual: "platform" as const
+  },
+  {
+    title: "RAG & LLM Orchestration",
+    description:
+      "Enterprise GenAI workflows with hybrid retrieval, query reformulation, LLM routing, tool/API integration, governance, and monitoring.",
+    tags: ["RAG", "LLMs", "LangGraph", "vLLM"],
+    viewHref: "#",
+    githubHref: "#",
+    visual: "network" as const
+  },
+  {
+    title: "OpenLI",
+    description:
+      "Open-source location intelligence project for turning location data into actionable insights through ETL pipelines, geospatial analysis, and a modern analytics dashboard.",
+    tags: ["Python", "ETL", "Geospatial Analytics", "Dashboard"],
+    viewHref: "#",
+    githubHref: "https://github.com/tobias-weller/openli",
+    visual: "image" as const,
+    image: "/assets/openli-screenshot.png",
+    imageAlt: "OpenLI dashboard screenshot",
+    badge: "Public Project"
+  }
+];
+
+const techCategories = [
+  {
+    title: "AI / ML",
+    icon: BrainCircuit,
+    items: ["Python", "PyTorch", "NLP", "RAG", "LLMs", "Transformers", "scikit-learn", "Hugging Face"]
+  },
+  {
+    title: "Engineering",
+    icon: Code,
+    items: ["FastAPI", "Docker", "Kubernetes", "Kafka", "Airflow", "GitHub Actions", "Prometheus"]
+  },
+  {
+    title: "Data & Search",
+    icon: Database,
+    items: ["Elasticsearch", "Vector DBs", "MongoDB", "Knowledge Graphs", "PostgreSQL", "Pandas", "Spark"]
+  },
+  {
+    title: "Cloud & Platform",
+    icon: Cloud,
+    items: ["AWS", "EKS", "S3", "Lambda", "RDS", "Redshift", "CloudWatch"]
+  }
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dr. Tobias Weller, Lead AI Engineer building production-grade AI systems for enterprise document processing, GenAI, and intelligent automation."
+    />
+    <title>Dr. Tobias Weller | Lead AI Engineer</title>
+  </head>
+  <body id="top">
+    <Header />
+    <main>
+      <Hero />
+
+      <section class="section scroll-mt-24">
+        <div class="container-shell">
+          <SectionHeading title="What I Do" />
+          <div class="grid gap-5 md:grid-cols-3">
+            {features.map((feature) => <FeatureCard {...feature} />)}
+          </div>
+        </div>
+      </section>
+
+      <ImpactList>
+        <SectionHeading slot="heading" title="Selected Impact" />
+      </ImpactList>
+
+      <section id="work" class="section scroll-mt-24">
+        <div class="container-shell">
+          <SectionHeading title="Selected Work" />
+          <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => <ProjectCard {...project} />)}
+          </div>
+        </div>
+      </section>
+
+      <TechStack categories={techCategories}>
+        <SectionHeading slot="heading" title="Tech Stack" />
+      </TechStack>
+
+      <Background>
+        <SectionHeading slot="heading" title="Background" />
+      </Background>
+    </main>
+    <Footer />
+  </body>
+</html>

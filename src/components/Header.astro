@@ -1,0 +1,33 @@
+---
+import { Download } from "@lucide/astro";
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Impact", href: "#impact" },
+  { label: "Work", href: "#work" },
+  { label: "Stack", href: "#stack" },
+  { label: "Background", href: "#background" },
+  { label: "Contact", href: "#contact" }
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#050812]/78 backdrop-blur-xl">
+  <nav class="container-shell flex min-h-20 items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 font-extrabold tracking-tight" aria-label="Dr. Tobias Weller home">
+      <span class="grid size-11 place-items-center rounded-xl border border-accent/45 bg-slate-950/80 text-lg text-white shadow-glow">TW</span>
+      <span class="hidden text-base text-white sm:inline">Dr. Tobias Weller</span>
+    </a>
+
+    <div class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a class="text-sm font-semibold text-slate-300 transition hover:text-white" href={item.href}>{item.label}</a>
+      ))}
+    </div>
+
+    <a href="/assets/cv.pdf" class="button button-primary shrink-0" download>
+      <Download size={18} aria-hidden="true" />
+      <span class="hidden sm:inline">Download CV</span>
+      <span class="sm:hidden">CV</span>
+    </a>
+  </nav>
+</header>

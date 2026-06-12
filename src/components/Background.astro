@@ -1,0 +1,22 @@
+---
+import { GraduationCap } from "@lucide/astro";
+---
+
+<section id="background" class="section scroll-mt-24">
+  <div class="container-shell">
+    <slot name="heading" />
+    <div class="glass-card grid gap-6 rounded-xl p-6 md:grid-cols-[auto_1fr] md:p-8">
+      <div class="grid size-16 place-items-center rounded-2xl bg-blue-500/12 text-accent">
+        <GraduationCap size={34} stroke-width={1.7} aria-hidden="true" />
+      </div>
+      <div class="space-y-4 text-sm leading-7 text-slate-300 md:text-base">
+        <p>
+          I hold a PhD in Machine Learning and bring 10+ years of experience across applied research, enterprise AI engineering, and large-scale AI platform development.
+        </p>
+        <p>
+          My focus is on building reliable, scalable AI systems that deliver real business impact — combining deep technical expertise with product thinking, platform architecture, and hands-on engineering.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
