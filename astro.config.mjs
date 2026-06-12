@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://tobiasweller.github.io"
+  site: "https://moodatadev.github.io"
 });
